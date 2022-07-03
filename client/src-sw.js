@@ -24,7 +24,43 @@ warmStrategyCache({
   strategy: pageCache,
 });
 
-registerRoute(({ request }) => request.mode === 'navigate', pageCache);
+const cacheName = "static-resources";
+const matchCallback = ({ request }) => {
+  console.log(request);
+  return (
+    // css
+    request.destination === "style" ||
+    // JavaSript
+    request.destination === "script" ||
+    // html
+    request.destination === "document"
+  );
+};
 
-// TODO: Implement asset caching
-registerRoute();
+registerRoute(
+  matchCallback,
+  new StaleWhileRevalidate({
+    cacheName,
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+    ],
+  })
+);
+
+// Implement asset caching
+registerRoute(({ request }) => request.destination === "image",
+  new CacheFirst({
+    cacheName: "my-image-cache",
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new ExpirationPlugin({
+        maxEntries: 60,
+        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+      }),
+    ],
+  }),
+  );

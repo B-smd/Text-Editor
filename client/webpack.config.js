@@ -10,7 +10,7 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -21,7 +21,7 @@ module.exports = () => {
       // Webpack plugin that generates our html file and injects our bundles.
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'JATE'
+        title: 'Jate'
       }),
 
       new InjectManifest({
@@ -59,11 +59,11 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /node_modules/,
+          exclude: /(node_modules|bower_components)/,
           // we use babel-loader in order to use ES6.
           use: {
             loader: 'babel-loader',
-            option: {
+            options: {
               presets: ['@babel/preset-env'],
               plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },

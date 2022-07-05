@@ -73,7 +73,6 @@ https://bambang-text-editor.herokuapp.com/
 ---
 ## Badges
 ![Badge](https://img.shields.io/badge/License-MIT-blue.svg)
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
 ## Features
 

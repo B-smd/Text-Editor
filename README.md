@@ -58,7 +58,11 @@ THEN I should have proper build scripts for a webpack application
 
 ## Demo
 
-https://bambang-text-editor.herokuapp.com/
+A Heroku app [bambang-text-editor](https://bambang-text-editor.herokuapp.com/)
+
+![Text-Editor](img/ScreenShot.png)
+![Text-Editor](img/ScreenShot1.png)
+![Text-Editor](img/ScreenShot2.png)
 
 ## Credits
 - [Simon-Xu-Lan](https://github.com/Simon-Xu-Lan)

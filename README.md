@@ -60,8 +60,16 @@ THEN I should have proper build scripts for a webpack application
 
 A Heroku app [bambang-text-editor](https://bambang-text-editor.herokuapp.com/)
 
+The following image shows the application's `manifest.json` file:
+
 ![Text-Editor](img/ScreenShot.png)
+
+The following image shows the application's registered service worker:
+
 ![Text-Editor](img/ScreenShot1.png)
+
+The following image shows the application's IndexedDB storage:
+
 ![Text-Editor](img/ScreenShot2.png)
 
 ## Credits
